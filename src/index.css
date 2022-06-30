@@ -2,9 +2,20 @@
     box-sizing: border-box;
 }
 
+/* Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
 :root {
-
-}
+    --darkmode-bg: hsl(207, 26%, 17%);
+    --darkmode-text: hsl(0, 0%, 100%);
+    --darkmode-elements: hsl(209, 23%, 22%);
+    --lightmode-bg: hsl(0, 0%, 98%);
+    --lightmode-text: hsl(200, 15%, 8%);
+    --lightmode-elements: hsl(0, 0%, 52%);
+;}
 
 html,
 body {
@@ -12,7 +23,7 @@ body {
     margin: 0;
     font-size: 14px;
     line-height: 1.6;
-    background-color: whitesmoke;
+    color: var(--lightmode-text);
     font-family: sans-serif;
 }
 
@@ -22,13 +33,28 @@ body {
     gap: 2em;
 }
 
+.dark {
+    background-color: var(--darkmode-bg);
+    color: var(--darkmode-text);
+}
+
+.light {
+    background-color: var(--lightmode-bg);
+    color: var(--lightmode-text);
+}
+
+.dark-elements {
+    background-color: var(--darkmode-elements);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
 /* Header and Search */
 
 header {
     display: flex;
     align-items: flex-end;
-    box-shadow: 1px 1px 5px black;
-    background-color: white;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .header {
@@ -69,8 +95,8 @@ h2 {
     padding: 1em;
     border-radius: 3px;
     border: none;
-    background-color:white;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+    color:var(--lightmode-elements);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4)
 }
 
 .search input {
@@ -102,10 +128,10 @@ h2 {
     width: 80%;
     max-width: 80%;
     margin: 0 auto;
-    border-radius: 5px 5px 0 0;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     gap: 0em;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .card-img {
@@ -116,7 +142,7 @@ h2 {
 
 .card-flag {
     width: 100%;
-    height: 50%;
+    height: 100%;
     border-radius: 5px 5px 0 0;
 }
 
@@ -142,9 +168,7 @@ h2 {
 .back {
     display: inline-block;
     text-decoration: none;
-    box-shadow: 1px 1px 4px black;
     border-radius: 2px;
-    background-color: white;
     line-height: 1;
 }
 

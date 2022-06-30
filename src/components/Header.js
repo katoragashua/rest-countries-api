@@ -1,11 +1,15 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
+
+  const {theme, toggleTheme} = props
+  
+
   return (
-    <header>
+    <header className={!theme? "light": "dark-elements"}>
       <div className="header container">
         <h2>Where in the World?</h2>
-        <div className="theme">
+        <div className="theme" onClick={toggleTheme}>
           <img
             src="./images/dark_mode.svg"
             alt="crescent-moon-logo"
