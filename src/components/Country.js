@@ -22,7 +22,7 @@ const Country = (props) => {
   //Get border countries
   const borderCountries = country.borders
     ? country.borders.map((borderCountry, index) => (
-        <span key={index} className={!theme ? "light border" : "dark-elements border"}>
+        <span key={index} className={!theme? "light border" : "dark-elements border"}>
           {borderCountry}
         </span>
       ))
@@ -33,13 +33,10 @@ const Country = (props) => {
 
   return (
     <div className="country container">
-      <Link
-        to={"/"}
-        className={!theme ? "light back" : "dark-elements back"}
-      >
+      <Link to={"/"} className={!theme ? "light back" : "dark-elements back"}>
         ← Back
       </Link>
-      <img src={country.flags.png} alt="" />
+      <img src={country.flags.png} alt={`flag of ${country.name.common}`}  />
       <div className="country-info">
         <div className="">
           <h3>{country.name.common}</h3>

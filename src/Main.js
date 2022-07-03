@@ -2,16 +2,31 @@ import React from "react";
 import Card from "./components/Card";
 
 const Main = (props) => {
-  const { data } = props;
+  const { data, theme,  searchQuery, handleSearch} = props;
+  console.log(searchQuery)
   const countries = data.map((country) => (
-    <Card key={country.id} country={country} />
+    <Card key={country.id} country={country} theme={theme}/>
   ));
   
   return (
     <div className="main container">
       <div className="search">
-        <input type="search" name="search" id="search" placeholder="Search" />
-        <select name="region" id="region" placeholder="Search by">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search"
+          onChange={handleSearch}
+          value={searchQuery.search}
+          className={!theme ? "light" : "dark-inputs"}
+        />
+        <select
+          name="region"
+          id="region"
+          value={searchQuery.region}
+          onChange={handleSearch}
+          className={!theme ? "light" : "dark-inputs"}
+        >
           <option value="">Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="asia">Asia</option>

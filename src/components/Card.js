@@ -2,10 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom"
 
 const Card = (props) => {
-  const { country } = props;
+  const { country, theme } = props;
 
   return (
-    <div className="card">
+    <div className={!theme ? "card": "card card-dark"}>
       <div className="card-img">
         <Link to={country.id}>
           <img src={country.flags.png} alt="" className="card-flag" />

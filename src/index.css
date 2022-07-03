@@ -14,7 +14,8 @@
     --darkmode-elements: hsl(209, 23%, 22%);
     --lightmode-bg: hsl(0, 0%, 98%);
     --lightmode-text: hsl(200, 15%, 8%);
-    --lightmode-elements: hsl(0, 0%, 52%);
+    --lightmode-elements: hsl(0, 0%, 100%);
+    --lightmode-inputs: hsl(0, 0%, 52%);
 ;}
 
 html,
@@ -46,6 +47,10 @@ body {
 .dark-elements {
     background-color: var(--darkmode-elements);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.dark-inputs {
+    background-color: var(--darkmode-elements);
 }
 
 /* Header and Search */
@@ -95,7 +100,7 @@ h2 {
     padding: 1em;
     border-radius: 3px;
     border: none;
-    color:var(--lightmode-elements);
+    color:var(--lightmode-inputs);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4)
 }
 
@@ -132,6 +137,11 @@ h2 {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     gap: 0em;
     background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--lightmode-elements);
+}
+
+.card-dark {
+     background-color: var(--darkmode-elements);
 }
 
 .card-img {
@@ -152,6 +162,7 @@ h2 {
     padding: 1.5em;
     padding-bottom: 3em;
     padding-top: 0.5em;
+   
 }
 
 .card-data {
@@ -170,6 +181,7 @@ h2 {
     text-decoration: none;
     border-radius: 2px;
     line-height: 1;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .border {
