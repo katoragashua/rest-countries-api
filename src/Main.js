@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./components/Card";
 
 const Main = (props) => {
-  const { data, theme,  searchQuery, handleSearch} = props;
+  const { data, theme,  searchQuery, handleSearch, handleFilter} = props;
   console.log(searchQuery)
   const countries = data.map((country) => (
     <Card key={country.id} country={country} theme={theme}/>
@@ -24,14 +24,14 @@ const Main = (props) => {
           name="region"
           id="region"
           value={searchQuery.region}
-          onChange={handleSearch}
+          onChange={handleFilter}
           className={!theme ? "light" : "dark-inputs"}
         >
           <option value="">Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
-          <option value="america">America</option>
+          <option value="americas">America</option>
           <option value="oceania">Oceania</option>
         </select>
       </div>

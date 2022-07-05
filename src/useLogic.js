@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 
 const useLogic = (url) => {
   const [theme, setTheme] = useState(() => false);
+  const [localData, setLocalData] = useState(() => []);
   const [data, setData] = useState(() => []);
   const [searchQuery, setSearchQuery] = useState(() => ({
     search: "",
@@ -22,6 +23,7 @@ const useLogic = (url) => {
           ...datum,
         }));
 
+        setLocalData((prev) => countriesArray);
         setData((prev) => countriesArray);
       });
   }, [url]);
@@ -33,17 +35,40 @@ const useLogic = (url) => {
       [name]: value,
     }));
     console.log(value);
-    setData((prev) => {
-      return data.filter((datum) =>
-        datum.name.common.toLowerCase().includes(value.toLowerCase())
-      );
-    });
 
-    setData(prev => data.filter(datum => datum.region.toLowerCase() === value))
+    setData((prev) =>
+      localData.filter((datum) => {
+        if (name) {
+          return datum.name.common.toLowerCase().includes(value);
+        }else {
+          return datum
+        }
+      })
+    );
   };
-  //  console.log(searchQuery);
 
-  return { data, theme, toggleTheme, searchQuery, handleSearch };
+  const handleFilter = (e) => {
+    const { value, name } = e.target;
+    setSearchQuery((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    if(value){
+      setData((prev) =>
+        localData.filter((datum) => {
+          return datum.region.toLowerCase() === value;
+        })
+      );
+    }else (
+      setData((prev) => localData)
+    )
+    
+  }
+
+  //  console.log(!searchQuery.search || !searchQuery.region);
+
+  return { data, theme, toggleTheme, searchQuery, handleSearch, handleFilter };
 };
 
 export default useLogic;
