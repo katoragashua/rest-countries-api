@@ -32,14 +32,14 @@ const useLogic = (url) => {
     const { value, name } = e.target;
     setSearchQuery((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
     console.log(value);
 
     setData((prev) =>
       localData.filter((datum) => {
         if (name) {
-          return datum.name.common.toLowerCase().includes(value);
+          return datum.name.common.toLowerCase().includes(value.toLowerCase());
         }else {
           return datum
         }
@@ -51,13 +51,13 @@ const useLogic = (url) => {
     const { value, name } = e.target;
     setSearchQuery((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
 
     if(value){
       setData((prev) =>
         localData.filter((datum) => {
-          return datum.region.toLowerCase() === value;
+          return datum.region.toLowerCase() === value.toLowerCase();
         })
       );
     }else (

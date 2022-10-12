@@ -15,7 +15,7 @@ const Main = (props) => {
           type="text"
           name="search"
           id="search"
-          placeholder="Search"
+          placeholder="Search for a country"
           onChange={handleSearch}
           value={searchQuery.search}
           className={!theme ? "light" : "dark-inputs"}

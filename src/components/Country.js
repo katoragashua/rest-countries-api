@@ -46,7 +46,7 @@ const Country = (props) => {
           </div>
           <div className="card-data">
             <span className="head-span">Population:</span>
-            <span>{country.population}</span>
+            <span>{country.population.toLocaleString()}</span>
           </div>
           <div className="card-data">
             <span className="head-span">Region:</span>

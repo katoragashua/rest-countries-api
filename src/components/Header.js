@@ -10,9 +10,9 @@ const Header = (props) => {
       <div className="header container">
         <h2>Where in the World?</h2>
         <div className="theme" onClick={toggleTheme}>
-          <img
-            src="./images/dark_mode.svg"
-            alt="crescent-moon-logo"
+          <img className="theme-logo"
+            src={!theme? "./images/moon-light.png": "./images/moon-dark.png"}
+            alt="dark/light mode logo"
             width="25px"
           />
           <p>Dark Mode</p>

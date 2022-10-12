@@ -16,7 +16,7 @@ const Card = (props) => {
         <h3>{country.name.official}</h3>
         <div className="card-data">
           <span className="head-span">Population: </span>
-          <span>{country.population}</span>
+          <span>{country.population.toLocaleString()}</span>
         </div>
         <div className="card-data">
           <span className="head-span">Region: </span>
